@@ -1,0 +1,15 @@
+# Node dependencies
+node_modules/
+npm-debug.log
+
+# Environment variables & Secrets
+.env
+
+# Compiled TypeScript output
+dist/
+build/
+*.tsbuildinfo
+
+# OS generated files
+.DS_Store
+Thumbs.db
