@@ -1,4 +1,4 @@
-// src/index.ts
+
 
 export type LogStack = "backend" | "frontend";
 export type LogLevel = "debug" | "info" | "warn" | "error" | "fatal";
@@ -7,9 +7,7 @@ export type LogPackage =
   | "api" | "component" | "hook" | "page" | "state" | "style" 
   | "auth" | "config" | "middleware" | "utils"; 
 
-/**
- * Reusable Logging Function 
- */
+
 export const Log = async (
   stack: LogStack,
   level: LogLevel,
@@ -17,12 +15,12 @@ export const Log = async (
   message: string
 ): Promise<void> => {
   try {
-    // These will be loaded by the consuming application (e.g., your vehicle scheduler)
+    
     const token = process.env.ACCESS_TOKEN; 
     const baseUrl = process.env.TEST_SERVER_BASE_URL || "http://4.224.186.213/evaluation-service";
 
     if (!token) {
-      // Fallback standard error if token isn't loaded by the parent app yet
+      
       process.stderr.write("Log Middleware Error: ACCESS_TOKEN is missing.\n");
       return;
     }
@@ -36,7 +34,7 @@ export const Log = async (
       body: JSON.stringify({
         stack,
         level,
-        package: pkgName, // Mapped to the strict 'package' key required by the API
+        package: pkgName, 
         message
       })
     });
